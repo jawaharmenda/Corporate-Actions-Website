@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<img src="{{url_for('static',filename='s&p.jpg')}}" alt="CorporateActions" width="100%"" height="150"></img>
+</head>
+<body>
+<h1 align="middle">
+Welcome to Corporate Actions Portal
+</h1>
+<br>
+<form action="{{url_for('vendor')}}" method='POST'>
+VendorName: <input list="CorporateActionsList" name="CAL">
+<datalist id="CorporateActionsList">
+	<option value="EDI">EDI</option>
+	<option value="Index">Index</option>
+	<option value="IDC">IDC</option>
+	<option value="Fly Syndicate - IPO">Fly</option>
+</datalist>
+Region: <input list="RegionList" name="RL">
+<datalist id="RegionList">
+	<option value="North America">
+	<option value="International">  				
+</datalist>
+Country: <input list="CountryList" name="CL">
+<datalist id="CountryList">
+	<option value="USA">
+	<option value="India">
+	<option value="China">
+</datalist>
+Company Name: <input type="text" name="companyname">
+<br><br>
+From: <input type="Date" name="calendarFrom" value="mm/dd/yyyy">
+To: <input type="Date" name="calendarTo" value="mm/dd/yyyy">
+<button type="button">Excel</button>
+<br><br>
+<input type="submit" name="click" value="submit">
+</form>
+<br>	
+<div>
+{% if data %}
+<table cellspacing="1" cellpadding="5" width="10%" border="1">
+<tbody>
+<h2>
+	{{data | safe }}		
+</h2>
+</tbody>
+</table>
+{% endif %}
+</div>
+</body>
+</html>
+
